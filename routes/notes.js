@@ -40,12 +40,12 @@ notesRouter.get('/', (req, res, next) => {
   // Get a single item///////////////////////
   notesRouter.get('/:id', (req, res, next) => {
     const id = req.params.id;
-
+    
     knex
       .select('notes.id', 'title', 'content', 'folders.id as folderId', 'folders.name as folderName')
       .from('notes')
       .leftJoin('folders', 'notes.folder_id', 'folders.id')
-      .where('id', id)
+      .where('notes.id', id)
       .then(x => x[0])
       .then(results => {
         if (results) {
