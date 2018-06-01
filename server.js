@@ -6,6 +6,7 @@ const cors = require('cors');
 
 const { PORT } = require('./config');
 
+const foldersRouter = require('./routes/folders');
 const notesRouter = require('./routes/notes');
 
 // Create an Express application
